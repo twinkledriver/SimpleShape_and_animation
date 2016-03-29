@@ -64,39 +64,36 @@ public class MainActivity extends Activity {
 			}
 		});
         
-        final Button roundRectButton = (Button) findViewById(R.id.ButtonRoundRect);
-        roundRectButton.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
+		final Button roundRectButton = (Button) findViewById(R.id.ButtonRoundRect);
+		roundRectButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
+			
 				ShapeDrawable d = new ShapeDrawable(new RoundRectShape(
 						new float[] { 5, 5, 5, 5, 5, 5, 5, 5 }, null, null));
 				d.setIntrinsicHeight(50);
 				d.setIntrinsicWidth(100);
 				d.getPaint().setColor(Color.CYAN);
-	
+				setShapeByDrawable(d);
 			}
 		});
         
         
-     // Handle Round Rectangle 2Button
-     		final Button roundRectButton2 = (Button) findViewById(R.id.ButtonRoundRect2);
-     		roundRectButton2.setOnClickListener(new View.OnClickListener() {
-     			public void onClick(View v) {
-     				
-     				float[] outerRadii = new float[] { 6, 6, 6, 6, 6, 6, 6, 6 };
-     	            RectF   insetRectangle = new RectF(8, 8, 8, 8);
-     	            float[] innerRadii = new float[] { 6, 6, 6, 6, 6, 6, 6, 6 };
-     	            
-     	           ShapeDrawable d = new ShapeDrawable(new RoundRectShape(outerRadii,insetRectangle , innerRadii));
-     	           d.setIntrinsicHeight(50);
-     	           d.setIntrinsicWidth(100);
-     	           d.getPaint().setColor(Color.WHITE);
-     	           setShapeByDrawable(d);
-   			}
-   		});
+		final Button roundRectButton2 = (Button) findViewById(R.id.ButtonRoundRect2);
+		roundRectButton2.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				// Create a rounded rect with an inner rect
+				
+	            float[] outerRadii = new float[] { 6, 6, 6, 6, 6, 6, 6, 6 };
+	            RectF   insetRectangle = new RectF(8, 8, 8, 8);
+	            float[] innerRadii = new float[] { 6, 6, 6, 6, 6, 6, 6, 6 };
+
+				ShapeDrawable d = new ShapeDrawable(new RoundRectShape(outerRadii,insetRectangle , innerRadii));
+				d.setIntrinsicHeight(50);
+				d.setIntrinsicWidth(100);
+				d.getPaint().setColor(Color.BLACK);
+				setShapeByDrawable(d);
+			}
+		});
 
 	final Button pathButton=(Button) findViewById(R.id.ButtonPath);
 	pathButton.setOnClickListener(new View.OnClickListener() {
