@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Test_SimpleDrawing</string>
-    <string name="hello_world">Hello world!</string>
+    <!-- <string name="hello_world">Hello world!</string> -->
     <string name="sampleText">Some Sample Text!</string>
 
 </resources>

@@ -59,4 +59,3 @@ public class DrawGradientActivity extends DrawingActivity  {
 	
 	
 
-}

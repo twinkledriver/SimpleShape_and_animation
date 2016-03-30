@@ -1,7 +1,5 @@
 package com.example.test_simpledrawing;
 
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
