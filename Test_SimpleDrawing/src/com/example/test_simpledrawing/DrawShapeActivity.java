@@ -28,7 +28,7 @@ public class DrawShapeActivity extends DrawingActivity {
 
 	            Paint circlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 	            circlePaint.setColor(Color.RED);
-	            canvas.drawCircle(canvas.getWidth()/2, canvas.getHeight()/2, canvas.getWidth()/3, circlePaint);
+	            canvas.drawCircle(canvas.getWidth()/2, canvas.getHeight()/2, canvas.getWidth()/3, circlePaint);// ×ø±ê+°ë¾¶
 	            
 	        }
 	 }

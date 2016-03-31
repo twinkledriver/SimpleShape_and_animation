@@ -18,7 +18,7 @@ public class DrawTextActivity extends DrawingActivity {
 }
 	
 	 private static class ViewWithText extends View {
-	        private Paint    mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+	        private Paint    mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);		//¿¹¾â³Ý
 	        private Typeface mType;
 	        
 	        
@@ -32,7 +32,7 @@ public class DrawTextActivity extends DrawingActivity {
 	            canvas.drawColor(Color.GREEN);
 
 	            mPaint.setTypeface(null);
-	            canvas.drawText("Default Typeface (Normal)", 30, 40, mPaint);
+	            canvas.drawText("Default Typeface (Normal)", 30, 40, mPaint);		//ÎÄ×Ö+×ø±ê+×ÖÌå
 
 	            mType = Typeface.create(Typeface.SANS_SERIF, Typeface.NORMAL);
 	            mPaint.setTypeface(mType);

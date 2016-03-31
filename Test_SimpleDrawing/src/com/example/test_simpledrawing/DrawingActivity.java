@@ -8,18 +8,18 @@ import android.view.MenuItem;
 
 public abstract class DrawingActivity extends Activity {
 
-	   protected void onCreate(Bundle savedInstanceState) {
-	        super.onCreate(savedInstanceState);
+	   protected void onCreate(Bundle savedInstanceState) {   //重写 oncreate函数
+	        super.onCreate(savedInstanceState);				//写布局
 	        setContentView(R.layout.activity_main);
 }
 	   @Override
-		public boolean onCreateOptionsMenu(Menu menu) {
+		public boolean onCreateOptionsMenu(Menu menu) {				//写菜单选项
 			getMenuInflater().inflate(R.menu.drawmenu, menu);
 			
 			
 			menu.findItem(R.id.bitmap_menu_item).setIntent(new Intent(this, DrawBitmapActivity.class));
 			menu.findItem(R.id.gradient_menu_item).setIntent(new Intent(this, DrawGradientActivity.class));
-			menu.findItem(R.id.shape_menu_item).setIntent(new Intent(this, DrawShapeActivity.class));
+			menu.findItem(R.id.shape_menu_item).setIntent(new Intent(this, DrawShapeActivity.class));				//加入5个菜单选项
 			menu.findItem(R.id.text_menu_item).setIntent(new Intent(this, DrawTextActivity.class));
 			menu.findItem(R.id.font_menu_item).setIntent(new Intent(this, DrawCustomFontActivity.class));
 			super.onCreateOptionsMenu(menu);
@@ -29,7 +29,7 @@ public abstract class DrawingActivity extends Activity {
 		@Override
 		public boolean onOptionsItemSelected(MenuItem item) {
 			startActivity(item.getIntent());
-			super.onOptionsItemSelected(item);
+			super.onOptionsItemSelected(item);			//写 菜单选项 选择
 			return true;
 		}
 }

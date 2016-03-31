@@ -20,7 +20,7 @@ public class DrawCustomFontActivity extends DrawingActivity {
 		setContentView(new ViewWithChessBoardFont(this));
 }
 	 private static class ViewWithChessBoardFont extends View {
-	        private Paint    mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+	        private Paint    mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);		//消除边缘锯齿 代码
 	        private Typeface mType;
 	        private float textSize = 32;
 	        private float xStart = 7;
@@ -36,8 +36,8 @@ public class DrawCustomFontActivity extends DrawingActivity {
 	            
 	            // This chess font is Copywritten, but freely available. I have emailed the author. 
 	            // We may want to remove this activity from the final CD (LED/SAC)  
-	            mType = Typeface.createFromAsset(getContext().getAssets(),"fonts/chess1.ttf");
-	            mPaint.setTypeface(mType);
+	            mType = Typeface.createFromAsset(getContext().getAssets(),"fonts/chess1.ttf");  //获取资源
+	            mPaint.setTypeface(mType);		//设置字体样式
 	            mPaint.setColor(Color.BLACK);
 	            
 	            // Draw the chess board
@@ -45,8 +45,8 @@ public class DrawCustomFontActivity extends DrawingActivity {
 	            canvas.drawText("3RMBWKVNT2", xStart, (yStart+(textSize*1)), mPaint); 
 	            canvas.drawText("3OPOPOPOP2", xStart, (yStart+(textSize*2)), mPaint); 
 	            canvas.drawText("3 / / / /2", xStart, (yStart+(textSize*3)), mPaint); 
-	            canvas.drawText("3/ / / / 2", xStart, (yStart+(textSize*4)), mPaint); 
-	            canvas.drawText("3 / / / /2", xStart, (yStart+(textSize*5)), mPaint); 
+	            canvas.drawText("3/ / / / 2", xStart, (yStart+(textSize*4)), mPaint); 	//数字代表 边框，字母代表棋子
+	            canvas.drawText("3 / / / /2", xStart, (yStart+(textSize*5)), mPaint); 	//反斜杠 代表阴影 空白即空白
 	            canvas.drawText("3/ / / / 2", xStart, (yStart+(textSize*6)), mPaint); 
 	            canvas.drawText("3popopopo2", xStart, (yStart+(textSize*7)), mPaint); 
 	            canvas.drawText("3tnvqlbmr2", xStart, (yStart+(textSize*8)), mPaint); 
