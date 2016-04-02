@@ -25,10 +25,10 @@ public class DrawTextActivity extends DrawingActivity {
 	        public ViewWithText(Context context) {
 	            super(context);
 
-	            mPaint.setTextSize(16);
+	            mPaint.setTextSize(16);					//设置字体大小
 	        }
 	        
-	        @Override protected void onDraw(Canvas canvas) {
+	        @Override protected void onDraw(Canvas canvas) {		//画布底色
 	            canvas.drawColor(Color.GREEN);
 
 	            mPaint.setTypeface(null);
