@@ -3,30 +3,18 @@ package com.fm;
 
 
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.view.View;
 import android.view.SurfaceHolder.Callback;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.view.SurfaceView;
 
 /**
  * 
@@ -50,6 +38,8 @@ public class MySurfaceView extends SurfaceView implements Callback, Runnable {
 	private Bitmap fishBmp[] = new Bitmap[10];
 	//¼ÇÂ¼µ±Ç°²¥·ÅÖ¡
 	private int currentFrame;
+	
+	private int phoX,phoY;
 	
 	private int bmpX, bmpY;
 
@@ -81,8 +71,10 @@ public class MySurfaceView extends SurfaceView implements Callback, Runnable {
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
 		
-		bmpX = -fishBmp[0].getWidth()+this.getWidth();
-		bmpY=-fishBmp[0].getHeight()+this.getHeight();
+		bmpX = 250;
+		bmpY= 450;
+		phoX= 70;
+		phoY=70;
 		
 		screenW = this.getWidth();
 		screenH = this.getHeight();
@@ -97,14 +89,16 @@ public class MySurfaceView extends SurfaceView implements Callback, Runnable {
 	 * ÓÎÏ·»æÍ¼
 	 */
 
+	
 	public void myDraw() {
 		try {
 			canvas = sfh.lockCanvas();
+
 			if (canvas != null) {
 				canvas.drawColor(Color.WHITE);
 						
 				canvas.drawBitmap(fishBmp[currentFrame], bmpX, bmpY, paint);
-
+				canvas.drawBitmap(fishBmp[currentFrame], phoX, phoY, paint);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -133,29 +127,76 @@ public class MySurfaceView extends SurfaceView implements Callback, Runnable {
 	/**
 	 * ÓÎÏ·Âß¼­
 	 */
+	
+	//ÄÚÈ¦ Óã Ë³Ê±Õë Î»ÒÆ
 	private void logic() {
 		
-	if(bmpX!=20)
+		if(phoY==70)
 		{
-		bmpX-=5;
+			if(phoX>=70&&phoX<=190)
+			{
+				phoX+=10;
+			}
 		}
-	else 
+		if(phoX==200)
+		{
+			if(phoY>=70&&phoY<=390)
+			{
+				phoY+=10;
+			}	
+		}
+		if(phoY==400)
+		{
+			if(phoX>=80&&phoX<=200)
+			{
+				phoX-=10;
+			}
+		}
+		if(phoX==70)
+		{
+			if(phoY>=80&&phoY<=400)
+			{
+				phoY-=10;
+			}
+		}
+
+	//ÍâÈ¦ Óã Ë³Ê±Õë Î»ÒÆ
+	if(bmpY==450)
 	{
-		while(bmpY
-		bmpY-=1;
+		if(bmpX>=30&&bmpX<=250)
+		{
+			bmpX-=10;
+			if(bmpX==20)
+			{
+			}
+		}
+	}
+	if(bmpX==20)
+	{
+		if(bmpY>=30&&bmpY<=450)
+		{
+			bmpY-=10;
+		}	
+	}
+	if(bmpY==20)
+	{
+		if(bmpX>=20&&bmpX<=240)
+		{
+			bmpX+=10;
+		}
+	}
+	if(bmpX==250)
+	{
+		if(bmpY>=20&&bmpY<=440)
+		{
+			bmpY+=10;
+		}
 	}
 
-		
 		currentFrame++;
-		
-		
-		
-		
-		
 		if (currentFrame >= fishBmp.length) {
 			currentFrame = 0;
-			
-			
+
 		}
 	}
 
